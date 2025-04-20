@@ -2,10 +2,10 @@ const fs = require("fs");
 const puppeteer = require("puppeteer");
 
 (async () => {
-  const url = "https://mercado.carrefour.com.br/bebidas";
+  const linkUrl = "https://mercado.carrefour.com.br/bebidas";
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
-  await page.goto(url, { waitUntil: "networkidle2" });
+  await page.goto(linkUrl, { waitUntil: "networkidle2" });
 
   const products = await page.evaluate(() => {
     return Array.from(
